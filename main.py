@@ -5,9 +5,11 @@ from model import Model
 import torch
 import torch.nn as nn
 import time
+from mind_data import load_mind
 
 
-dataset = load_dataset('imdb')
+# dataset = load_dataset('imdb')
+dataset = load_dataset('mind')
 
 text=[]
 label=[]
