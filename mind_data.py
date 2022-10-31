@@ -39,4 +39,5 @@ def load_mind(root):
     dataset['dev']['text'] = all_text
     dataset['dev']['label'] = all_label
 
+    dataset['class_num'] = len(label_map)
     return dataset

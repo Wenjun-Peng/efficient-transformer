@@ -1,4 +1,4 @@
-from datasets import load_dataset
+# from datasets import load_dataset
 from nltk.tokenize import wordpunct_tokenize
 from transformers import BertConfig
 from model import Model
@@ -9,7 +9,7 @@ from mind_data import load_mind
 
 
 # dataset = load_dataset('imdb')
-dataset = load_dataset('mind')
+dataset = load_mind('mind')
 
 text=[]
 label=[]
@@ -47,6 +47,7 @@ import logging
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 config=BertConfig.from_json_file('fastformer.json')
+config.num_labels = dataset['class_num']
 
 def acc(y_true, y_hat):
     y_hat = torch.argmax(y_hat, dim=-1)

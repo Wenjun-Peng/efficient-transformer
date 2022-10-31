@@ -239,7 +239,7 @@ class Model(torch.nn.Module):
     def __init__(self, config, word_dict, is_moe=False):
         super(Model, self).__init__()
         self.config = config
-        self.dense_linear = nn.Linear(config.hidden_size,4)
+        self.dense_linear = nn.Linear(config.hidden_size, config.num_labels)
         self.word_embedding = nn.Embedding(len(word_dict),256,padding_idx=0)
         self.fastformer_model = FastformerEncoder(config, is_moe)
         self.criterion = nn.CrossEntropyLoss() 
